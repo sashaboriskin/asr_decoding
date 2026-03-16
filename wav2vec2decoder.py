@@ -83,8 +83,17 @@ class Wav2Vec2Decoder:
         Returns:
             str: Decoded transcript.
         """
-        # <YOUR CODE GOES HERE>
-        raise NotImplementedError
+        log_probs = torch.log_softmax(logits, dim=-1)
+        best_ids = torch.argmax(log_probs, dim=-1).tolist()
+
+        collapsed = []
+        prev = None
+        for tid in best_ids:
+            if tid != prev:
+                if tid != self.blank_token_id:
+                    collapsed.append(tid)
+            prev = tid
+        return self._ids_to_text(collapsed)
 
     def beam_search_decode(self, logits: torch.Tensor, return_beams: bool = False):
         """
@@ -103,10 +112,70 @@ class Wav2Vec2Decoder:
                 List[Tuple[List[int], float]] - list of (token_ids, log_prob)
                     tuples sorted best-first (if return_beams=True).
         """
-        # <YOUR CODE GOES HERE>
+        log_probs = torch.log_softmax(logits, dim=-1)
+        T, V = log_probs.shape
+
+        # {prefix_tuple: (p_blank, p_non_blank)}
+        beams = {(): (0.0, float('-inf'))}
+
+        for t in range(T):
+            new_beams = {}
+            pruned = sorted(
+                beams.items(),
+                key=lambda x: _log_add(x[1][0], x[1][1]),
+                reverse=True,
+            )[:self.beam_width]
+
+            for prefix, (p_b, p_nb) in pruned:
+                p_total = _log_add(p_b, p_nb)
+
+                # Blank extension — stays at same prefix
+                if prefix not in new_beams:
+                    new_beams[prefix] = (float('-inf'), float('-inf'))
+                cur = new_beams[prefix]
+                new_beams[prefix] = (
+                    _log_add(cur[0], p_total + log_probs[t, self.blank_token_id].item()),
+                    cur[1],
+                )
+
+                # Non-blank tokens
+                for c in range(V):
+                    if c == self.blank_token_id:
+                        continue
+                    lp = log_probs[t, c].item()
+
+                    if prefix and c == prefix[-1]:
+                        # Same char as last: collapse (from non-blank path)
+                        cur = new_beams[prefix]
+                        new_beams[prefix] = (cur[0], _log_add(cur[1], p_nb + lp))
+                        # Extend from blank path (new repeated char)
+                        np = prefix + (c,)
+                        if np not in new_beams:
+                            new_beams[np] = (float('-inf'), float('-inf'))
+                        cur = new_beams[np]
+                        new_beams[np] = (cur[0], _log_add(cur[1], p_b + lp))
+                    else:
+                        # Different char — extend from both paths
+                        np = prefix + (c,)
+                        if np not in new_beams:
+                            new_beams[np] = (float('-inf'), float('-inf'))
+                        cur = new_beams[np]
+                        new_beams[np] = (cur[0], _log_add(cur[1], p_total + lp))
+
+            beams = new_beams
+
+        sorted_beams = sorted(
+            beams.items(),
+            key=lambda x: _log_add(x[1][0], x[1][1]),
+            reverse=True,
+        )
+
         if return_beams:
-            raise NotImplementedError
-        raise NotImplementedError
+            return [
+                (list(prefix), _log_add(p_b, p_nb))
+                for prefix, (p_b, p_nb) in sorted_beams[:self.beam_width]
+            ]
+        return self._ids_to_text(list(sorted_beams[0][0]))
 
     def beam_search_with_lm(self, logits: torch.Tensor) -> str:
         """
