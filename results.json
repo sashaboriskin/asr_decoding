@@ -1,0 +1,523 @@
+{
+  "task4": [
+    {
+      "alpha": 0.01,
+      "beta": 0.0,
+      "wer": 0.11146,
+      "cer": 0.03789
+    },
+    {
+      "alpha": 0.01,
+      "beta": 0.5,
+      "wer": 0.11073,
+      "cer": 0.03774
+    },
+    {
+      "alpha": 0.01,
+      "beta": 1.0,
+      "wer": 0.11318,
+      "cer": 0.03813
+    },
+    {
+      "alpha": 0.01,
+      "beta": 1.5,
+      "wer": 0.11415,
+      "cer": 0.03818
+    },
+    {
+      "alpha": 0.05,
+      "beta": 0.0,
+      "wer": 0.11146,
+      "cer": 0.03789
+    },
+    {
+      "alpha": 0.05,
+      "beta": 0.5,
+      "wer": 0.11024,
+      "cer": 0.03764
+    },
+    {
+      "alpha": 0.05,
+      "beta": 1.0,
+      "wer": 0.11244,
+      "cer": 0.03803
+    },
+    {
+      "alpha": 0.05,
+      "beta": 1.5,
+      "wer": 0.11391,
+      "cer": 0.03813
+    },
+    {
+      "alpha": 0.1,
+      "beta": 0.0,
+      "wer": 0.11098,
+      "cer": 0.03779
+    },
+    {
+      "alpha": 0.1,
+      "beta": 0.5,
+      "wer": 0.11024,
+      "cer": 0.03764
+    },
+    {
+      "alpha": 0.1,
+      "beta": 1.0,
+      "wer": 0.1122,
+      "cer": 0.03798
+    },
+    {
+      "alpha": 0.1,
+      "beta": 1.5,
+      "wer": 0.11366,
+      "cer": 0.03813
+    },
+    {
+      "alpha": 0.5,
+      "beta": 0.0,
+      "wer": 0.1122,
+      "cer": 0.03784
+    },
+    {
+      "alpha": 0.5,
+      "beta": 0.5,
+      "wer": 0.11122,
+      "cer": 0.03779
+    },
+    {
+      "alpha": 0.5,
+      "beta": 1.0,
+      "wer": 0.11024,
+      "cer": 0.03764
+    },
+    {
+      "alpha": 0.5,
+      "beta": 1.5,
+      "wer": 0.11318,
+      "cer": 0.03822
+    },
+    {
+      "alpha": 1.0,
+      "beta": 0.0,
+      "wer": 0.1144,
+      "cer": 0.03818
+    },
+    {
+      "alpha": 1.0,
+      "beta": 0.5,
+      "wer": 0.11146,
+      "cer": 0.03779
+    },
+    {
+      "alpha": 1.0,
+      "beta": 1.0,
+      "wer": 0.11,
+      "cer": 0.03764
+    },
+    {
+      "alpha": 1.0,
+      "beta": 1.5,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 2.0,
+      "beta": 0.0,
+      "wer": 0.11586,
+      "cer": 0.03852
+    },
+    {
+      "alpha": 2.0,
+      "beta": 0.5,
+      "wer": 0.11513,
+      "cer": 0.03842
+    },
+    {
+      "alpha": 2.0,
+      "beta": 1.0,
+      "wer": 0.11244,
+      "cer": 0.03789
+    },
+    {
+      "alpha": 2.0,
+      "beta": 1.5,
+      "wer": 0.11122,
+      "cer": 0.03779
+    },
+    {
+      "alpha": 5.0,
+      "beta": 0.0,
+      "wer": 0.13909,
+      "cer": 0.04414
+    },
+    {
+      "alpha": 5.0,
+      "beta": 0.5,
+      "wer": 0.13102,
+      "cer": 0.04297
+    },
+    {
+      "alpha": 5.0,
+      "beta": 1.0,
+      "wer": 0.12784,
+      "cer": 0.04205
+    },
+    {
+      "alpha": 5.0,
+      "beta": 1.5,
+      "wer": 0.12002,
+      "cer": 0.04011
+    }
+  ],
+  "task5": [
+    {
+      "lm": "3-gram",
+      "wer": 0.11,
+      "cer": 0.03764
+    },
+    {
+      "lm": "4-gram",
+      "wer": 0.11073,
+      "cer": 0.03774
+    }
+  ],
+  "task6": [
+    {
+      "alpha": 0.01,
+      "beta": 0.0,
+      "wer": 0.11146,
+      "cer": 0.03789
+    },
+    {
+      "alpha": 0.01,
+      "beta": 0.5,
+      "wer": 0.11122,
+      "cer": 0.03774
+    },
+    {
+      "alpha": 0.01,
+      "beta": 1.0,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 0.01,
+      "beta": 1.5,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 0.05,
+      "beta": 0.0,
+      "wer": 0.11146,
+      "cer": 0.03789
+    },
+    {
+      "alpha": 0.05,
+      "beta": 0.5,
+      "wer": 0.11122,
+      "cer": 0.03774
+    },
+    {
+      "alpha": 0.05,
+      "beta": 1.0,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 0.05,
+      "beta": 1.5,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 0.1,
+      "beta": 0.0,
+      "wer": 0.11146,
+      "cer": 0.03789
+    },
+    {
+      "alpha": 0.1,
+      "beta": 0.5,
+      "wer": 0.11122,
+      "cer": 0.03774
+    },
+    {
+      "alpha": 0.1,
+      "beta": 1.0,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 0.1,
+      "beta": 1.5,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 0.5,
+      "beta": 0.0,
+      "wer": 0.11146,
+      "cer": 0.03789
+    },
+    {
+      "alpha": 0.5,
+      "beta": 0.5,
+      "wer": 0.11146,
+      "cer": 0.03784
+    },
+    {
+      "alpha": 0.5,
+      "beta": 1.0,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 0.5,
+      "beta": 1.5,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 1.0,
+      "beta": 0.0,
+      "wer": 0.11171,
+      "cer": 0.03793
+    },
+    {
+      "alpha": 1.0,
+      "beta": 0.5,
+      "wer": 0.11146,
+      "cer": 0.03789
+    },
+    {
+      "alpha": 1.0,
+      "beta": 1.0,
+      "wer": 0.11098,
+      "cer": 0.03774
+    },
+    {
+      "alpha": 1.0,
+      "beta": 1.5,
+      "wer": 0.11098,
+      "cer": 0.03769
+    },
+    {
+      "alpha": 2.0,
+      "beta": 0.0,
+      "wer": 0.11415,
+      "cer": 0.03822
+    },
+    {
+      "alpha": 2.0,
+      "beta": 0.5,
+      "wer": 0.11244,
+      "cer": 0.03803
+    },
+    {
+      "alpha": 2.0,
+      "beta": 1.0,
+      "wer": 0.11146,
+      "cer": 0.03789
+    },
+    {
+      "alpha": 2.0,
+      "beta": 1.5,
+      "wer": 0.11146,
+      "cer": 0.03784
+    },
+    {
+      "alpha": 5.0,
+      "beta": 0.0,
+      "wer": 0.11635,
+      "cer": 0.03847
+    },
+    {
+      "alpha": 5.0,
+      "beta": 0.5,
+      "wer": 0.11611,
+      "cer": 0.03842
+    },
+    {
+      "alpha": 5.0,
+      "beta": 1.0,
+      "wer": 0.11538,
+      "cer": 0.03832
+    },
+    {
+      "alpha": 5.0,
+      "beta": 1.5,
+      "wer": 0.11464,
+      "cer": 0.03827
+    }
+  ],
+  "task6_qualitative": [
+    {
+      "idx": 14,
+      "ref": "the kick he had received was a foretaste of what he might expect and after a little consideration he came to the conclusion that his duty was to escape and get back to the cutter as quickly as he could",
+      "beam": "the kickhe had received was a foretaste of what he might expect and after a little consideration he came to the conclusion that his duty was to escape and get back to the cutter as quickly as he could",
+      "sf": "the kickhe had received was a foretaste of what he might expect and after a little consideration he came to the conclusion that his duty was to escape and get back to the cutter as quickly as he could",
+      "rs": "the kickhe had received was a fore taste of what he might expect and after a little consideration he came to the conclusion that his duty was to escape and get back to the cutter as quickly as he could"
+    },
+    {
+      "idx": 24,
+      "ref": "a fellow who was shut up in prison for life might do it he said but not in a case like this",
+      "beam": "a fellow who as shut up in prison for life might doit he said but not in a case like this",
+      "sf": "a fellow who as shut up in prison for life might do it he said but not in a case like this",
+      "rs": "a fellow who as shut up in prison for life might do it he said but not in a case like this"
+    },
+    {
+      "idx": 33,
+      "ref": "and why did andy call mister gurr father",
+      "beam": "and why did andy call mister gurfather",
+      "sf": "and why did andy call mister gur father",
+      "rs": "and why did andy call mister gur father"
+    },
+    {
+      "idx": 79,
+      "ref": "that's right of course well armed",
+      "beam": "that's right of course willamed",
+      "sf": "that's right of course will amed",
+      "rs": "that's right of course will amed"
+    },
+    {
+      "idx": 81,
+      "ref": "awkward bit o country sir six miles row before you can find a place to land",
+      "beam": "alkward but a country sir six miles oro before you cand find a place to land",
+      "sf": "alkward but a country sir six miles or o before you cand find a place to land",
+      "rs": "alkward but a country sir six miles or o before you cand find a place to land"
+    },
+    {
+      "idx": 88,
+      "ref": "no wait another half hour",
+      "beam": "no where another anda half hour",
+      "sf": "no where another anda half hour",
+      "rs": "no where another an a half hour"
+    },
+    {
+      "idx": 112,
+      "ref": "gurr glanced round to see if the men were looking and then said rather huskily but kindly",
+      "beam": "gur glanced round to see if the men were looking and then said lether huskily bekindly",
+      "sf": "gur glanced round to see if the men were looking and then said lether huskily bekindly",
+      "rs": "gur glanced round to see if the men were looking and then said lether huskily be kindly"
+    },
+    {
+      "idx": 139,
+      "ref": "do as they do and belike thou shalt gain what may further thy return voyage to thy native land",
+      "beam": "do as thy do and belike thou shalt gain what may further thy return voyage to thy knight of land",
+      "sf": "do as thy do and belike thou shalt gain what may further thy return voyage to thy knight of land",
+      "rs": "do as thy do and be like thou shalt gain what may further thy return voyage to thy knight of land"
+    },
+    {
+      "idx": 153,
+      "ref": "each that died we washed and shrouded in some of the clothes and linen cast ashore by the tides and after a little the rest of my fellows perished one by one till i had buried the last of the party and abode alone on the island with but a little provision left i who was wont to have so much",
+      "beam": "each that died we washed and shrowded in some of the clothes and linen cast a shore by the tides and after little the rest of my fellows perished one by one till i had buried the last of the party and aboade alone on the island with but a little provision left i who was wont to have so much",
+      "sf": "each that died we washed and shrowded in some of the clothes and linen cast a shore by the tides and after a little the rest of my fellows perished one by one till i had buried the last of the party and aboade alone on the island with but a little provision left i who was wont to have so much",
+      "rs": "each that died we washed and shrowded in some of the clothes and linen cast a shore by the tides and after little the rest of my fellows perished one by one till i had buried the last of the party and aboade alone on the island with but a little provision left i who was wont to have so much"
+    },
+    {
+      "idx": 171,
+      "ref": "then i took leave of him and of all my intimates and acquaintances in the island and embarked with the merchants aforesaid",
+      "beam": "then i took leave of him and of all my intimates and acquaintances in the island and embarked with the merchant safforsaid",
+      "sf": "then i took leave of him and of all my intimates and acquaintances in the island and embarked with the merchant safforsaid",
+      "rs": "then i took leave of him and of all my intimates and acquaintances in the island and embarked with the merchant saffor said"
+    },
+    {
+      "idx": 175,
+      "ref": "presently my friends came to me and i distributed presents among my family and gave alms and largesse after which i yielded myself to joyance and enjoyment mirth and merry making and forgot all that i had suffered",
+      "beam": "presently my friends came to me and i distributed presence among my family and gave arms and larjes after which i yielded myself to joyance and enjoyment mirth and merrymaking and forgot all that i had suffered",
+      "sf": "presently my friends came to me and i distributed presence among my family and gave arms and larjes after which i yielded myself to joyance and enjoyment mirth and merrymaking and forgot all that i had suffered",
+      "rs": "presently my friends came to me and i distributed presence among my family and gave arms and larjes after which i yielded myself to joyance and enjoyment mirth and merry making and forgot all that i had suffered"
+    }
+  ],
+  "task7": {
+    "greedy_librispeech": {
+      "wer": 0.1122,
+      "cer": 0.03813
+    },
+    "beam_librispeech": {
+      "wer": 0.11073,
+      "cer": 0.03769
+    },
+    "sf_librispeech": {
+      "wer": 0.11,
+      "cer": 0.0375
+    },
+    "rs_librispeech": {
+      "wer": 0.11098,
+      "cer": 0.0376
+    },
+    "greedy_earnings22": {
+      "wer": 0.5497,
+      "cer": 0.25579
+    },
+    "beam_earnings22": {
+      "wer": 0.5494,
+      "cer": 0.25384
+    },
+    "sf_earnings22": {
+      "wer": 0.55301,
+      "cer": 0.25411
+    },
+    "rs_earnings22": {
+      "wer": 0.55211,
+      "cer": 0.25378
+    }
+  },
+  "task7b": [
+    {
+      "T": 0.5,
+      "greedy_wer": 0.5497,
+      "greedy_cer": 0.25579,
+      "beam_lm_wer": 0.55181,
+      "beam_lm_cer": 0.25562
+    },
+    {
+      "T": 1.0,
+      "greedy_wer": 0.5497,
+      "greedy_cer": 0.25579,
+      "beam_lm_wer": 0.55301,
+      "beam_lm_cer": 0.25411
+    },
+    {
+      "T": 1.5,
+      "greedy_wer": 0.5497,
+      "greedy_cer": 0.25579,
+      "beam_lm_wer": 0.56175,
+      "beam_lm_cer": 0.25546
+    },
+    {
+      "T": 2.0,
+      "greedy_wer": 0.5497,
+      "greedy_cer": 0.25579,
+      "beam_lm_wer": 0.575,
+      "beam_lm_cer": 0.25784
+    }
+  ],
+  "task9": {
+    "librispeech_3gram_librispeech": {
+      "sf_wer": 0.11,
+      "sf_cer": 0.0375,
+      "rs_wer": 0.11098,
+      "rs_cer": 0.0376
+    },
+    "librispeech_3gram_earnings22": {
+      "sf_wer": 0.55301,
+      "sf_cer": 0.25411,
+      "rs_wer": 0.55211,
+      "rs_cer": 0.25378
+    },
+    "financial_3gram_librispeech": {
+      "sf_wer": 0.121,
+      "sf_cer": 0.0389,
+      "rs_wer": 0.11098,
+      "rs_cer": 0.03764
+    },
+    "financial_3gram_earnings22": {
+      "sf_wer": 0.48705,
+      "sf_cer": 0.24778,
+      "rs_wer": 0.5512,
+      "rs_cer": 0.25373
+    }
+  }
+}
