@@ -191,8 +191,95 @@ class Wav2Vec2Decoder:
         """
         if not self.lm_model:
             raise ValueError("KenLM model required for LM shallow fusion")
-        # <YOUR CODE GOES HERE>
-        raise NotImplementedError
+
+        log_probs = torch.log_softmax(logits, dim=-1)
+        T, V = log_probs.shape
+        blank = self.blank_token_id
+
+        # prefix -> (p_blank, p_non_blank)
+        # LM score is computed on-the-fly for pruning (scores full text incl. partial words)
+        beams = {(): (0.0, float('-inf'))}
+
+        for t in range(T):
+            new_beams = {}
+
+            # compute combined scores for pruning
+            scored = []
+            for prefix, (p_b, p_nb) in beams.items():
+                acoustic = _log_add(p_b, p_nb)
+                text = self._ids_to_text(list(prefix))
+                if text.strip():
+                    lm_s = self.lm_model.score(text, bos=True, eos=False)
+                    nw = len(text.split())
+                else:
+                    lm_s, nw = 0.0, 0
+                combined = acoustic + self.alpha * lm_s + self.beta * nw
+                scored.append((prefix, (p_b, p_nb), combined))
+            scored.sort(key=lambda x: x[2], reverse=True)
+            pruned = scored[:self.beam_width]
+
+            for prefix, (p_b, p_nb), _ in pruned:
+                p_total = _log_add(p_b, p_nb)
+
+                # blank extension
+                if prefix not in new_beams:
+                    new_beams[prefix] = (float('-inf'), float('-inf'))
+                cur = new_beams[prefix]
+                new_beams[prefix] = (
+                    _log_add(cur[0], p_total + log_probs[t, blank].item()),
+                    cur[1],
+                )
+
+                for c in range(V):
+                    if c == blank:
+                        continue
+                    lp = log_probs[t, c].item()
+
+                    if prefix and c == prefix[-1]:
+                        # same char: collapse from non-blank path
+                        if prefix not in new_beams:
+                            new_beams[prefix] = (float('-inf'), float('-inf'))
+                        cur = new_beams[prefix]
+                        new_beams[prefix] = (
+                            cur[0], _log_add(cur[1], p_nb + lp),
+                        )
+
+                        # from blank path: extend with repeated char
+                        np = prefix + (c,)
+                        if np not in new_beams:
+                            new_beams[np] = (float('-inf'), float('-inf'))
+                        cur = new_beams[np]
+                        new_beams[np] = (
+                            cur[0], _log_add(cur[1], p_b + lp),
+                        )
+                    else:
+                        np = prefix + (c,)
+                        if np not in new_beams:
+                            new_beams[np] = (float('-inf'), float('-inf'))
+                        cur = new_beams[np]
+                        new_beams[np] = (
+                            cur[0], _log_add(cur[1], p_total + lp),
+                        )
+
+            beams = new_beams
+
+        # final scoring with eos
+        best_prefix = None
+        best_score = float('-inf')
+        for prefix, (p_b, p_nb) in beams.items():
+            acoustic = _log_add(p_b, p_nb)
+            text = self._ids_to_text(list(prefix))
+            if text.strip():
+                lm_s = self.lm_model.score(text, bos=True, eos=True)
+                nw = len(text.split())
+            else:
+                lm_s, nw = 0.0, 0
+            score = acoustic + self.alpha * lm_s + self.beta * nw
+            if score > best_score:
+                best_score = score
+                best_prefix = prefix
+
+        return self._ids_to_text(list(best_prefix))
 
     def lm_rescore(self, beams: List[Tuple[List[int], float]]) -> str:
         """
@@ -207,8 +294,21 @@ class Wav2Vec2Decoder:
         """
         if not self.lm_model:
             raise ValueError("KenLM model required for LM rescoring")
-        # <YOUR CODE GOES HERE>
-        raise NotImplementedError
+
+        best_text = None
+        best_score = float('-inf')
+        for token_ids, acoustic_score in beams:
+            text = self._ids_to_text(token_ids)
+            if text.strip():
+                lm_score = self.lm_model.score(text, bos=True, eos=True)
+                num_words = len(text.split())
+            else:
+                lm_score, num_words = 0.0, 0
+            score = acoustic_score + self.alpha * lm_score + self.beta * num_words
+            if score > best_score:
+                best_score = score
+                best_text = text
+        return best_text
 
     # -----------------------------------------------------------------------
     # Provided — do NOT modify
